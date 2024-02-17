@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:maciuca"
+             x:Class="maciuca.AddmaciucaPage"
+             BackgroundColor="#fff">
+
+    
+    <StackLayout Margin="20" Spacing="10">
+        <Editor Placeholder="Enter the title of the rule"
+            Text="{Binding Title}"
+            HeightRequest="50" />
+        <Editor Placeholder="Enter the image of the rule"
+            Text="{Binding image}"
+            HeightRequest="50" />
+        <Editor Placeholder="Enter the description of the rule"
+            Text="{Binding Description}"
+            HeightRequest="50" />
+        
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Save"
+            Clicked="OnSaveButtonClicked" TextColor="#ffbbd1" BackgroundColor="#Afffff" WidthRequest="170" HeightRequest="40"/>
+            <Button Grid.Column="1"
+                Text="Delete"
+                Clicked="OnDeleteButtonClicked" TextColor="#ffbbd1" BackgroundColor="#Afffff" WidthRequest="170" HeightRequest="40"/>
+        </Grid>
+
+            <StackLayout Margin="20" Spacing="10">
+                <Label  FontSize="17" FontAttributes="Bold" Text="Genre:" 
+                 HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+
+        <ListView x:Name="listView" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Margin="20" Spacing="10">
+                <Label  FontSize="17" FontAttributes="Bold" Text="Characters:" 
+                HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+
+        <ListView x:Name="CharacterlistView" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding Name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+       
+        <Button Text="Add/Choose type of rule to add" 
+                TextColor="#ffbbd1" BackgroundColor="#Afffff" WidthRequest="200" HeightRequest="40"
+                Clicked="OnChooseButtonClicked"/>
+        
+        <Button Text="Add/Choose specifications to add" 
+        TextColor="#ffbbd1" BackgroundColor="#Afffff" WidthRequest="200" HeightRequest="40"
+        Clicked="OnChooseButtonClickedCharacter"/>
+
+    </StackLayout>
+
+</ContentPage>
